@@ -1,11 +1,14 @@
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import '@/app/ui/global.css';
+import { inter } from '@/app/ui/fonts';
+import Navbar from './ui/navbar';
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${inter.className} min-h-screen bg-yellow-100 antialiased`}>
+        <Navbar />
+        <div className={`${inter.className} flex flex-col p-6`}>{children}</div>
+      </body>
     </html>
   );
 }
