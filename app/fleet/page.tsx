@@ -7,13 +7,15 @@ export default async function Fleet() {
   console.log(cars);
   return (
     <main>
-      <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
-        Fleet
-      </h1>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {cars.map((car) => {
-          return <FleetCard key={car.id} {...car} />;
-        })}
+      <div className="flex flex-col gap-5 pl-10 pr-10 overflow-hidden">
+        <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
+          Fleet
+        </h1>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {cars.map((car) => {
+            return <FleetCard key={car.id} {...car} />;
+          })}
+        </div>
       </div>
     </main>
   );
