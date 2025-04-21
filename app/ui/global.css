@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  padding-top: 100;
+}
 
 input[type='number'] {
   -moz-appearance: textfield;

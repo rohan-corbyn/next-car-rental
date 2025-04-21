@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import NavLinks from '@/app/ui/dashboard/nav-links';
-import CarsRUsLogo from '@/app/ui/cars-r-us-logo';
-import { PowerIcon } from '@heroicons/react/24/outline';
+import Link from "next/link";
+import NavLinks from "@/app/ui/account-dashboard/NavLinks";
+import CarsForHireLogo from "@/app/ui/cars-for-hire-logo";
+import { PowerIcon } from "@heroicons/react/24/outline";
 
 export default function SideNav() {
   return (
@@ -11,7 +11,7 @@ export default function SideNav() {
         href="/"
       >
         <div className="w-32 text-white md:w-40">
-          <CarsRUsLogo displayIcon={false} />
+          <CarsForHireLogo displayIcon={false} />
         </div>
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">

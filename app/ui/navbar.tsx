@@ -1,17 +1,20 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { ArrowRightCircleIcon, UserCircleIcon } from '@heroicons/react/24/outline';
-import CarsRUsLogo from './cars-r-us-logo';
-import NavLinks from './nav-links';
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  ArrowRightCircleIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/outline";
+import CarsRUsLogo from "./cars-for-hire-logo";
+import NavLinks from "./nav-links";
 
 export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Replace with actual auth
 
   return (
-    <nav className="flex w-full items-center justify-between bg-yellow-300 px-6 py-3 shadow-md">
+    <nav className="fixed top-0 left-0 flex w-full items-center justify-between bg-yellow-300 px-6 py-3 shadow-md">
       <CarsRUsLogo displayIcon={true} hideIfMobile={true} />
 
       <div className="flex items-center gap-6">
@@ -21,7 +24,7 @@ export default function Navbar() {
 
         {!isLoggedIn ? (
           <Link
-            href="/be-dashboard"
+            href="account-dashboard"
             className="flex items-center gap-2 rounded-full bg-orange-600 px-4 py-2 text-sm text-yellow-100 transition hover:bg-orange-700"
           >
             <ArrowRightCircleIcon className="h-5 w-5" />

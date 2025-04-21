@@ -1,65 +1,55 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import { merinda } from "@/app/ui/fonts";
 
-type Blog = {
-  id: string;
+// id: string;
+// title: string;
+// tags: string;
+// car_id: string;
+// date: string;
+// text: string;
+// image_url: string;
+
+export function BlogCard({
+  title,
+  tags,
+  // car_id,
+  date,
+  text,
+  image_url,
+}: {
   title: string;
-  imageUrl?: string;
   text: string;
-  tags: string[];
-  slug: string; // Assuming the slug is used for routing
-};
-
-type BlogCardProps = {
-  blog: Blog;
-};
-
-const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
+  tags: string;
+  car_id: string;
+  date: string;
+  image_url: string;
+}) {
   return (
-    <div className="overflow-hidden rounded-lg bg-white p-4 shadow-lg">
-      {/* Blog Image */}
-      {blog.imageUrl && (
-        <div className="mb-4">
-          <Image
-            src={blog.imageUrl}
-            alt={blog.title}
-            width={500}
-            height={300}
-            className="w-full object-cover"
-          />
-        </div>
-      )}
+    <div className="rounded-xl bg-gray-50 p-5 shadow-sm">
+      <div className="flex flex-col p-4 bg-white">
+        <h2 className={`${merinda.className} ml-2 text-2xl font-medium`}>
+          {title}
+        </h2>
 
-      {/* Blog Title */}
-      <h2 className="mb-2 text-2xl font-bold">
-        <Link href={`/blog/${blog.slug}`}>
-          <a className="text-gray-800 hover:text-blue-600">{blog.title}</a>
-        </Link>
-      </h2>
-
-      {/* Blog Text Preview */}
-      <p className="mb-4 text-sm text-gray-700">
-        {blog.text.length > 150 ? `${blog.text.substring(0, 150)}...` : blog.text}
-      </p>
-
-      {/* Blog Tags */}
-      <div className="mb-4 flex flex-wrap gap-2">
-        {blog.tags.map((tag) => (
-          <span
-            key={tag}
-            className="inline-block rounded-full bg-blue-500 px-3 py-1 text-xs font-semibold text-white"
-          >
-            {tag}
+        <div className="flex flex-row flex-wrap gap-4 justify-between">
+          <span className="ml-2 text-md">{tags.replaceAll('"', "")}</span>
+          <span className="ml-2 text-md font-medium">
+            {date.toLocaleString()}
           </span>
-        ))}
-      </div>
+        </div>
 
-      {/* View More Button */}
-      <Link href={`/blog/${blog.slug}`}>
-        <a className="font-semibold text-blue-600 hover:underline">Read More</a>
-      </Link>
+        <div className="flex flex-row flex-wrap gap-6 rounded-xl bg-white px-4 py-8 ">
+          <Image
+            src={image_url}
+            width={1536 / 4}
+            height={1024 / 4}
+            alt="Needs to be stored and added"
+          />
+          <div className="blog-card-text lg:w-1/2">
+            <p className="ml-2 wrap-normal text-lg">{text}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
-};
-
-export default BlogCard;
+}

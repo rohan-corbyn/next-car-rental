@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
 
-import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
 // Map of links to display in the side navigation.
 // Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: 'Home', href: '/' },
+  { name: "Home", href: "/" },
   {
-    name: 'Blogs',
-    href: '/blogs',
+    name: "Blogs",
+    href: "/blogs",
   },
-  { name: 'Fleet', href: '/fleet' },
+  { name: "Fleet", href: "/fleet" },
 ];
 
 export default function NavLinks() {
@@ -27,7 +27,7 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx({
-              'text-orange-900': pathname === link.href,
+              "text-orange-900": pathname === link.href,
             })}
           >
             <p>{link.name}</p>
