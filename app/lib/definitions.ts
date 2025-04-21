@@ -90,7 +90,6 @@ export type FormattedCustomersTable = {
   image_url: string;
   total_bookings: number;
   total_pending: string;
-  total_invoices: string;
   total_paid: string;
 };
 
