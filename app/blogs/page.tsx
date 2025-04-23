@@ -2,6 +2,8 @@ import { lusitana } from "@/app/ui/fonts";
 import { fetchLatestBlogs } from "@/app/lib/data";
 import { BlogCard } from "@/app/ui/blogs/BlogCard";
 
+export const dynamic = "force-dynamic";
+
 export default async function Blogs() {
   const latestBlogs = await fetchLatestBlogs();
 
