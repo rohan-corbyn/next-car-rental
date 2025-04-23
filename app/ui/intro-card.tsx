@@ -34,14 +34,34 @@ export default function IntroCard() {
         <a href="https://www.postgresql.org/docs/" className="text-orange-500">
           PostgreSQL
         </a>
-        , Hosted on{" "}
+        .<br></br>Next app hosted on{" "}
         <a
           href="https://vercel.com/docs"
           className="text-nowrap text-orange-500"
         >
           Vercel
         </a>
-        .
+        .<br></br>Database hosted on{" "}
+        <a
+          href="https://neon.tech/docs/introduction"
+          className="text-nowrap text-orange-500"
+        >
+          Neondb
+        </a>
+        .<br></br>
+        <a
+          href="https://docs.strapi.io/"
+          className="text-nowrap text-orange-500"
+        >
+          Strapi CMS
+        </a>{" "}
+        hosted on{" "}
+        <a
+          href="https://render.com/docs"
+          className="text-nowrap text-orange-500"
+        >
+          Render.
+        </a>
       </p>
     </div>
   );

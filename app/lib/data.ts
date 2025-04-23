@@ -12,7 +12,7 @@ import {
 
 import { formatCurrency } from "./utils";
 
-import { cache } from 'react'; // 👈 this enables ISR with App Router
+import { cache } from "react"; // 👈 this enables ISR with App Router
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 
@@ -53,22 +53,22 @@ export async function fetchFleet() {
 
 // BLOGS
 
-export const fetchLatestBlogs = cache(async () => {
+export async function fetchLatestBlogs() {
   try {
     const data = await sql<Blog[]>`
-      SELECT blogs.id, blogs.title, blogs.text, blogs.tags, blogs.image_url, blogs.date 
-      FROM blogs
-      ORDER BY date DESC
-      LIMIT 5
-    `;
+SELECT DISTINCT id, title, text, tags, image_url, created_at FROM posts
+      ORDER BY created_at DESC
+      LIMIT 5`;
 
-    return data.rows; // depending on how your SQL returns
+    const latestBlogs = data.map((blog) => ({
+      ...blog,
+    }));
+    return latestBlogs;
   } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error('Failed to fetch the latest blogs.');
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch the latest blogs.");
   }
-});
-
+}
 export async function fetchCardData() {
   try {
     // You can probably combine these into a single SQL query

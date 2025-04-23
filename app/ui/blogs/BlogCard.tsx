@@ -12,7 +12,6 @@ import { merinda } from "@/app/ui/fonts";
 export function BlogCard({
   title,
   tags,
-  // car_id,
   date,
   text,
   image_url,
@@ -20,7 +19,6 @@ export function BlogCard({
   title: string;
   text: string;
   tags: string;
-  car_id: string;
   date: string;
   image_url: string;
 }) {
