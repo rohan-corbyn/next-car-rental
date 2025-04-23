@@ -12,6 +12,8 @@ import {
 
 import { formatCurrency } from "./utils";
 
+import { cache } from 'react'; // 👈 this enables ISR with App Router
+
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 
 export async function fetchRevenue() {
@@ -51,22 +53,21 @@ export async function fetchFleet() {
 
 // BLOGS
 
-export async function fetchLatestBlogs() {
+export const fetchLatestBlogs = cache(async () => {
   try {
     const data = await sql<Blog[]>`
-SELECT blogs.id, blogs.title, blogs.text, blogs.tags, blogs.image_url, blogs.date FROM blogs
+      SELECT blogs.id, blogs.title, blogs.text, blogs.tags, blogs.image_url, blogs.date 
+      FROM blogs
       ORDER BY date DESC
-      LIMIT 5`;
+      LIMIT 5
+    `;
 
-    const latestBlogs = data.map((blog) => ({
-      ...blog,
-    }));
-    return latestBlogs;
+    return data.rows; // depending on how your SQL returns
   } catch (error) {
-    console.error("Database Error:", error);
-    throw new Error("Failed to fetch the latest blogs.");
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch the latest blogs.');
   }
-}
+});
 
 export async function fetchCardData() {
   try {
