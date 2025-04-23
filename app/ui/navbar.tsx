@@ -24,7 +24,7 @@ export default function Navbar() {
 
         {!isLoggedIn ? (
           <Link
-            href="account-dashboard"
+            href=""
             className="flex items-center gap-2 rounded-full bg-orange-600 px-4 py-2 text-sm text-yellow-100 transition hover:bg-orange-700"
           >
             <ArrowRightCircleIcon className="h-5 w-5" />
