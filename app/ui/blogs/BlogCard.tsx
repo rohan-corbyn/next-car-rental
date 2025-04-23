@@ -30,9 +30,11 @@ export function BlogCard({
         </h2>
 
         <div className="flex flex-row flex-wrap gap-4 justify-between">
-          <span className="ml-2 text-md">{tags.replaceAll('"', "")}</span>
+          <span className="ml-2 text-md">
+            {(tags || "").replaceAll('"', "")}
+          </span>
           <span className="ml-2 text-md font-medium">
-            {date.toLocaleString()}
+            {date ? new Date(date).toLocaleDateString() : "No date"}
           </span>
         </div>
 

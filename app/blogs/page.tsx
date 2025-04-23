@@ -2,8 +2,6 @@ import { lusitana } from "@/app/ui/fonts";
 import { fetchLatestBlogs } from "@/app/lib/data";
 import { BlogCard } from "@/app/ui/blogs/BlogCard";
 
-export const revalidate = 60; // Revalidate this page every 60 seconds
-
 export default async function Blogs() {
   const latestBlogs = await fetchLatestBlogs();
 
