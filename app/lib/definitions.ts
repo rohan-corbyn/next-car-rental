@@ -49,8 +49,7 @@ export type Blog = {
   id: string;
   title: string;
   tags: string;
-  car_id: string;
-  date: string;
+  created_at: string;
   text: string;
   image_url: string;
 };
