@@ -56,7 +56,7 @@ export async function fetchFleet() {
 export async function fetchLatestBlogs() {
   try {
     const data = await sql<Blog[]>`
-SELECT DISTINCT id, title, text, tags, image_url, created_at FROM posts
+SELECT DISTINCT id, title, text, tags, image_url, created_at FROM posts where published_at IS NOT NULL
       ORDER BY created_at DESC
       LIMIT 5`;
 
