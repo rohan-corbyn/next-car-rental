@@ -12,14 +12,14 @@ import { merinda } from "@/app/ui/fonts";
 export function BlogCard({
   title,
   tags,
-  date,
+  created_at,
   text,
   image_url,
 }: {
   title: string;
   text: string;
   tags: string;
-  date: string;
+  created_at: string;
   image_url: string;
 }) {
   return (
@@ -31,20 +31,22 @@ export function BlogCard({
 
         <div className="flex flex-row flex-wrap gap-4 justify-between">
           <span className="ml-2 text-md">
-            {(tags || "").replaceAll('"', "")}
+            {tags && tags.replaceAll('"', "")}
           </span>
           <span className="ml-2 text-md font-medium">
-            {date ? new Date(date).toLocaleDateString() : "No date"}
+            {created_at.toLocaleString()}
           </span>
         </div>
 
         <div className="flex flex-row flex-wrap gap-6 rounded-xl bg-white px-4 py-8 ">
-          <Image
-            src={image_url}
-            width={1536 / 4}
-            height={1024 / 4}
-            alt="Needs to be stored and added"
-          />
+          {image_url && (
+            <Image
+              src={image_url}
+              width={1536 / 4}
+              height={1024 / 4}
+              alt="Needs to be stored and added"
+            />
+          )}
           <div className="blog-card-text lg:w-1/2">
             <p className="ml-2 wrap-normal text-lg">{text}</p>
           </div>
