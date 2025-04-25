@@ -12,7 +12,7 @@ const loginStatuses = { ADMIN: "admin", USER: "user", OUT: "out" };
 export default function CarsForHireLogo({
   displayIcon,
   hideIfMobile = false,
-  currentLoginStatus,
+  currentLoginStatus = "out",
 }: CarsRUsLogoProps) {
   return (
     <a
