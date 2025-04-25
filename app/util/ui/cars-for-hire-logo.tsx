@@ -1,5 +1,5 @@
 import { TruckIcon } from "@heroicons/react/24/outline";
-import { merinda } from "@/app/ui/fonts";
+import { merinda } from "@/app/util/ui/fonts";
 
 interface CarsRUsLogoProps {
   displayIcon: boolean; // You can define this type depending on your needs
@@ -11,7 +11,8 @@ export default function CarsForHireLogo({
   hideIfMobile = false,
 }: CarsRUsLogoProps) {
   return (
-    <div
+    <a
+      href="/"
       className={`${merinda.className} flex items-center space-x-3 text-nowrap text-white`}
     >
       {displayIcon && (
@@ -28,6 +29,6 @@ export default function CarsForHireLogo({
         <span className="text-orange-300">-</span>
         <span className="text-orange-600">Hire</span>
       </p>
-    </div>
+    </a>
   );
 }

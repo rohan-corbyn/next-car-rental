@@ -1,6 +1,6 @@
-import "@/app/ui/global.css";
-import { inter } from "@/app/ui/fonts";
-import Navbar from "./ui/navbar";
+import "@/app/util/ui/global.css";
+import { inter } from "@/app/util/ui/fonts";
+import Navbar from "./util/ui/navbar/NavBar";
 
 export default function RootLayout({
   children,
@@ -12,9 +12,16 @@ export default function RootLayout({
       <body
         className={`${inter.className} min-h-screen bg-yellow-100 antialiased`}
       >
-        <Navbar />
-        <div className={`${inter.className} mt-20 flex flex-col pt-6`}>
-          {children}
+        <div className="h-screen w-screen flex flex-col">
+          {/* Fixed Header */}
+          <Navbar />
+
+          {/* Page Body */}
+
+          <div className="overflow-y-auto h-full px-20 lg:px-40">
+            {/* Add your scrollable content here */}
+            <div>{children}</div>
+          </div>
         </div>
       </body>
     </html>

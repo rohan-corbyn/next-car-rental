@@ -1,22 +1,20 @@
-import { lusitana } from "@/app/ui/fonts";
-import { fetchLatestBlogs } from "@/app/lib/data";
-import { BlogCard } from "@/app/ui/blogs/BlogCard";
+import { lusitana } from "@/app/util/ui/fonts";
+import { fetchLatestBlogs } from "@/app/util/lib/data";
+import { PostCard } from "@/app/util/ui/blogs/PostCard";
+import PageLayout from "../util/ui/PageLayout";
 
 export const dynamic = "force-dynamic";
 
 export default async function Blogs() {
   const latestBlogs = await fetchLatestBlogs();
+  const blogComponents = latestBlogs.map((blog) => {
+    return <PostCard key={blog.id} {...blog} />;
+  });
+  const content = <div className="flex flex-col gap-5">{blogComponents}</div>;
 
   return (
     <main>
-      <div className="flex flex-col gap-5 pl-10 pr-10 overflow-hidden">
-        <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
-          Blogs
-        </h1>
-        {latestBlogs.map((blog) => {
-          return <BlogCard key={blog.id} {...blog} />;
-        })}
-      </div>
+      <PageLayout heading={"Blogs"} content={content}></PageLayout>
     </main>
   );
 }

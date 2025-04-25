@@ -10,19 +10,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
-// Map of links to display in the side navigation.
-// Depending on the size of the application, this would be stored in a database.
 const links = [
-  { name: "Home", href: "/dashboard", icon: HomeIcon },
-  {
-    name: "Blogs",
-    href: "/dashboard/blogs",
-    icon: NewspaperIcon,
-  },
   {
     name: "Enquiries",
-    href: "/dashboard/enquiries",
+    href: "/account-dashboard/enquiries",
     icon: ChatBubbleLeftRightIcon,
+  },
+  {
+    name: "Fleet",
+    href: "/account-dashboard/account-fleet",
+    icon: NewspaperIcon,
   },
 ];
 

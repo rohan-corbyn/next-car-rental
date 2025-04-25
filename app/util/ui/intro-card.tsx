@@ -1,5 +1,5 @@
-import { merinda, inter } from "@/app/ui/fonts";
-import CarsForHireLogo from "@/app/ui/cars-for-hire-logo";
+import { merinda, inter } from "@/app/util/ui/fonts";
+import CarsForHireLogo from "@/app/util/ui/cars-for-hire-logo";
 
 export default function IntroCard() {
   return (

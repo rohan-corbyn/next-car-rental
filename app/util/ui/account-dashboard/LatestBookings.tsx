@@ -1,8 +1,8 @@
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import Image from "next/image";
-import { lusitana } from "@/app/ui/fonts";
-import { LatestBooking } from "@/app/lib/definitions";
+import { lusitana } from "@/app/util/ui/fonts";
+import { LatestBooking } from "@/app/util/lib/definitions";
 export default async function Latestbookings({
   latestBookings,
 }: {

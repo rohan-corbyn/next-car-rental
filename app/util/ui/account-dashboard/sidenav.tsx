@@ -1,6 +1,6 @@
 import Link from "next/link";
-import NavLinks from "@/app/ui/account-dashboard/NavLinks";
-import CarsForHireLogo from "@/app/ui/cars-for-hire-logo";
+import NavLinks from "@/app/util/ui/account-dashboard/NavLinks";
+import CarsForHireLogo from "@/app/util/ui/cars-for-hire-logo";
 import { PowerIcon } from "@heroicons/react/24/outline";
 
 export default function SideNav() {

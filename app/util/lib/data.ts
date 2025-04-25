@@ -69,6 +69,7 @@ SELECT DISTINCT id, title, text, tags, image_url, created_at FROM posts where pu
     throw new Error("Failed to fetch the latest blogs.");
   }
 }
+
 export async function fetchCardData() {
   try {
     // You can probably combine these into a single SQL query

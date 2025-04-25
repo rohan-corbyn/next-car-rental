@@ -1,4 +1,4 @@
-import { formatCurrency } from "@/app/lib/utils";
+import { formatCurrency } from "@/app/util/lib/utils";
 import { lusitana, merinda } from "../fonts";
 import Image from "next/image";
 

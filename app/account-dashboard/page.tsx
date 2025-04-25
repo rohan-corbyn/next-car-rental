@@ -1,12 +1,12 @@
-import { Card } from "@/app/ui/account-dashboard/AccountCards";
-import RevenueChart from "@/app/ui/account-dashboard/revenue-chart";
-import LatestBookings from "@/app/ui/account-dashboard/LatestBookings";
-import { lusitana } from "@/app/ui/fonts";
+import { Card } from "@/app/util/ui/account-dashboard/AccountCards";
+import RevenueChart from "@/app/util/ui/account-dashboard/RecentRevenue";
+import LatestBookings from "@/app/util/ui/account-dashboard/LatestBookings";
 import {
   fetchRevenue,
   fetchLatestBookings,
   fetchCardData,
-} from "@/app/lib/data";
+} from "@/app/util/lib/data";
+import PageLayout from "../util/ui/PageLayout";
 
 export default async function Dashboard() {
   const revenue = await fetchRevenue();
@@ -18,12 +18,9 @@ export default async function Dashboard() {
     totalPendingBookings,
   } = await fetchCardData();
 
-  return (
-    <main>
-      <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
-        Dashboard
-      </h1>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  const content = (
+    <>
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {<Card title="Collected" value={totalPaidBookings} type="collected" />}
         {<Card title="Pending" value={totalPendingBookings} type="pending" />}
         {
@@ -41,10 +38,16 @@ export default async function Dashboard() {
           />
         }
       </div>
-      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-        {/* {<RevenueChart revenue={revenue} />} */}
-        {<LatestBookings latestBookings={latestBookings} />}
+      <div className="py-10 grid grid-cols-1 gap-10 md:grid-cols-4 lg:grid-cols-8">
+        <RevenueChart revenue={revenue} />
+        <LatestBookings latestBookings={latestBookings} />
       </div>
+    </>
+  );
+
+  return (
+    <main>
+      <PageLayout heading={""} content={content}></PageLayout>
     </main>
   );
 }

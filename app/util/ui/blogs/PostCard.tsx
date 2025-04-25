@@ -1,15 +1,7 @@
 import Image from "next/image";
-import { merinda } from "@/app/ui/fonts";
+import { merinda } from "@/app/util/ui/fonts";
 
-// id: string;
-// title: string;
-// tags: string;
-// car_id: string;
-// date: string;
-// text: string;
-// image_url: string;
-
-export function BlogCard({
+export function PostCard({
   title,
   tags,
   created_at,
