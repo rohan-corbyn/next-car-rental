@@ -12,8 +12,7 @@ import CarsRUsLogo from "../cars-for-hire-logo";
 import NavLinks from "./NavLinks";
 import { UserGroupIcon } from "@heroicons/react/20/solid";
 import AdminNavLinks from "../admin-dashboard/admin-navbar/AdminNavLinks";
-
-export const loginStatuses = { ADMIN: "admin", USER: "user", OUT: "out" };
+import loginStatuses from "../admin-dashboard/login-status-cosnstants";
 
 export default function Navbar() {
   const [currentLoginStatus, setCurrentLoginStatus] = useState(
