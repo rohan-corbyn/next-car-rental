@@ -4,7 +4,7 @@ import { merinda } from "@/app/util/ui/fonts";
 interface CarsRUsLogoProps {
   displayIcon: boolean; // You can define this type depending on your needs
   hideIfMobile?: boolean; // Optional prop, defaults to false if not provided
-  currentLoginStatus: string;
+  currentLoginStatus?: string;
 }
 
 const loginStatuses = { ADMIN: "admin", USER: "user", OUT: "out" };
