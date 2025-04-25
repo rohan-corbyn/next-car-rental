@@ -1,10 +1,10 @@
-import { Card } from "@/app/util/ui/account-dashboard/AccountCards";
+import { AccountCard } from "@/app/util/ui/account-dashboard/AccountCard";
 import RevenueChart from "@/app/util/ui/account-dashboard/RecentRevenue";
 import LatestBookings from "@/app/util/ui/account-dashboard/LatestBookings";
 import {
   fetchRevenue,
   fetchLatestBookings,
-  fetchCardData,
+  fetchAccountCardData,
 } from "@/app/util/lib/data";
 import PageLayout from "../util/ui/PageLayout";
 
@@ -16,22 +16,34 @@ export default async function Dashboard() {
     numberOfCustomers,
     totalPaidBookings,
     totalPendingBookings,
-  } = await fetchCardData();
+  } = await fetchAccountCardData();
 
   const content = (
     <>
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-        {<Card title="Collected" value={totalPaidBookings} type="collected" />}
-        {<Card title="Pending" value={totalPendingBookings} type="pending" />}
         {
-          <Card
+          <AccountCard
+            title="Collected"
+            value={totalPaidBookings}
+            type="collected"
+          />
+        }
+        {
+          <AccountCard
+            title="Pending"
+            value={totalPendingBookings}
+            type="pending"
+          />
+        }
+        {
+          <AccountCard
             title="Total Bookings"
             value={numberOfBookings}
             type="bookings"
           />
         }
         {
-          <Card
+          <AccountCard
             title="Total Customers"
             value={numberOfCustomers}
             type="customers"

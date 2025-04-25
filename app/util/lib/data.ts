@@ -70,7 +70,7 @@ SELECT DISTINCT id, title, text, tags, image_url, created_at FROM posts where pu
   }
 }
 
-export async function fetchCardData() {
+export async function fetchAccountCardData() {
   try {
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate

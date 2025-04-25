@@ -29,7 +29,7 @@ export function FleetCard({
         <h3
           className={`${lusitana.className} truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
         >
-          {formatCurrency(current_rate)}
+          {formatCurrency(current_rate)} /h
         </h3>
       </div>
     </div>

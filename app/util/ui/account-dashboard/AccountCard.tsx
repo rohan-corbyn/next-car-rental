@@ -30,7 +30,7 @@ export default async function CardWrapper() {
   );
 }
 
-export function Card({
+export function AccountCard({
   title,
   value,
   type,
