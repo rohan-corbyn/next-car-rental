@@ -18,7 +18,7 @@ export default function RootLayout({
 
           {/* Page Body */}
 
-          <div className="overflow-y-auto h-full px-0 lg:px-20">
+          <div className="overflow-y-auto h-full px-20 lg:px-5">
             {/* Add your scrollable content here */}
             <div>{children}</div>
           </div>
