@@ -36,7 +36,7 @@ export type Revenue = {
 
 export type LatestBooking = {
   id: string;
-  car_id: string;
+  car_name: string;
   name: string;
   date: string;
   amount: string;

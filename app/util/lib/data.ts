@@ -112,9 +112,11 @@ const ITEMS_PER_PAGE = 6;
 export async function fetchLatestBookings() {
   try {
     const data = await sql<LatestBookingRaw[]>`
-      SELECT bookings.amount, customers.name, customers.image_url, customers.email, bookings.id
+      SELECT bookings.amount, customers.name, cars.name as car_name, customers.image_url, customers.email, bookings.id 
       FROM bookings
       JOIN customers ON bookings.customer_id = customers.id
+      JOIN cars ON bookings.car_id = cars.id
+
       ORDER BY bookings.date DESC
       LIMIT 5`;
 

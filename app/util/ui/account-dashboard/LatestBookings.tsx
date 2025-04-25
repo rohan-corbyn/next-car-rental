@@ -49,6 +49,11 @@ export default async function Latestbookings({
                   <p
                     className={`${lusitana.className} truncate text-sm font-medium md:text-base`}
                   >
+                    {booking.car_name}
+                  </p>
+                  <p
+                    className={`${lusitana.className} truncate text-sm font-medium md:text-base`}
+                  >
                     {booking.amount}
                   </p>
                 </div>
@@ -56,7 +61,7 @@ export default async function Latestbookings({
             })}
           </div>
         }
-        <div className="flex items-center pb-2 pt-6">
+        <div className="flex items-center p-2 pt-6">
           <ArrowPathIcon className="h-5 w-5 text-gray-500" />
           <h3 className="ml-2 text-sm text-gray-500 ">Updated just now</h3>
         </div>

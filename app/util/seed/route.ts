@@ -52,8 +52,8 @@ async function seedBookings() {
   const insertedBookings = await Promise.all(
     bookings.map(
       (booking) => sql`
-        INSERT INTO bookings (customer_id, amount, status, date)
-        VALUES (${booking.customer_id}, ${booking.amount}, ${booking.status}, ${booking.date})
+        INSERT INTO bookings (customer_id, car_id, amount, status, date)
+        VALUES (${booking.customer_id}, ${booking.car_id}, ${booking.amount}, ${booking.status}, ${booking.date})
         ON CONFLICT (id) DO NOTHING;
       `
     )
@@ -173,9 +173,9 @@ export async function GET() {
     const result = await sql.begin((sql) => [
       // seedUsers(),
       // seedCustomers(),
-      // seedBookings(),
+      seedBookings(),
       // seedRevenue(),
-      seedCars(),
+      // seedCars(),
     ]);
 
     return Response.json({ message: "Database seeded successfully" });
