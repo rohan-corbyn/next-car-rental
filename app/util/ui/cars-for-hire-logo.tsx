@@ -1,12 +1,13 @@
 import { TruckIcon } from "@heroicons/react/24/outline";
 import { merinda } from "@/app/util/ui/fonts";
-import loginStatuses from "./admin-dashboard/login-status-cosnstants";
 
 interface CarsRUsLogoProps {
   displayIcon: boolean; // You can define this type depending on your needs
   hideIfMobile?: boolean; // Optional prop, defaults to false if not provided
   currentLoginStatus: string;
 }
+
+const loginStatuses = { ADMIN: "admin", USER: "user", OUT: "out" };
 
 export default function CarsForHireLogo({
   displayIcon,
