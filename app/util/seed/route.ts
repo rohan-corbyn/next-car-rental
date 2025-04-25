@@ -37,13 +37,13 @@ async function seedUsers() {
 }
 
 async function seedBookings() {
-  await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-
   await sql`
     CREATE TABLE IF NOT EXISTS bookings (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
       customer_id UUID NOT NULL,
+      car_id UUID NOT NULL,
       amount INT NOT NULL,
+      hours INT NOT NULL,
       status VARCHAR(255) NOT NULL,
       date DATE NOT NULL
     );
@@ -52,8 +52,8 @@ async function seedBookings() {
   const insertedBookings = await Promise.all(
     bookings.map(
       (booking) => sql`
-        INSERT INTO bookings (customer_id, car_id, amount, status, date)
-        VALUES (${booking.customer_id}, ${booking.car_id}, ${booking.amount}, ${booking.status}, ${booking.date})
+        INSERT INTO bookings (customer_id, car_id, hours, amount, status, date)
+        VALUES (${booking.customer_id}, ${booking.car_id}, ${booking.hours}, ${booking.amount}, ${booking.status}, ${booking.date})
         ON CONFLICT (id) DO NOTHING;
       `
     )

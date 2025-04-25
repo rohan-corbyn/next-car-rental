@@ -18,6 +18,7 @@ export type Booking = {
   customer_id: string;
   event: string;
   amount: number;
+  hours: number;
   date: string;
   status: "pending" | "paid";
 };

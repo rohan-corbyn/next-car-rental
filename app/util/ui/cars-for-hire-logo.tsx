@@ -1,18 +1,23 @@
 import { TruckIcon } from "@heroicons/react/24/outline";
 import { merinda } from "@/app/util/ui/fonts";
+import { loginStatuses } from "./navbar/Navbar";
 
 interface CarsRUsLogoProps {
   displayIcon: boolean; // You can define this type depending on your needs
   hideIfMobile?: boolean; // Optional prop, defaults to false if not provided
+  currentLoginStatus: string;
 }
 
 export default function CarsForHireLogo({
   displayIcon,
   hideIfMobile = false,
+  currentLoginStatus,
 }: CarsRUsLogoProps) {
   return (
     <a
-      href="/"
+      href={
+        currentLoginStatus === loginStatuses.ADMIN ? "/admin-dashboard" : "/"
+      }
       className={`${merinda.className} flex items-center space-x-3 text-nowrap text-white`}
     >
       {displayIcon && (

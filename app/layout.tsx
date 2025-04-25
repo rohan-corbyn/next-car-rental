@@ -1,7 +1,6 @@
 import "@/app/util/ui/global.css";
 import { inter } from "@/app/util/ui/fonts";
-import Navbar from "./util/ui/navbar/NavBar";
-
+import Navbar from "./util/ui/navbar/Navbar";
 export default function RootLayout({
   children,
 }: {
@@ -18,7 +17,7 @@ export default function RootLayout({
 
           {/* Page Body */}
 
-          <div className="overflow-y-auto h-full px-20 lg:px-40">
+          <div className="overflow-y-auto h-full px-10 md:px-20 md:px-40">
             {/* Add your scrollable content here */}
             <div>{children}</div>
           </div>

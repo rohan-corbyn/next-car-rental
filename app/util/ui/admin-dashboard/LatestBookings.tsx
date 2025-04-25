@@ -47,7 +47,7 @@ export default async function Latestbookings({
                     </div>
                   </div>
                   <p
-                    className={`${lusitana.className} truncate text-sm font-medium md:text-base`}
+                    className={`${lusitana.className} truncate text-sm font-medium md:text-base invisible lg:visible`}
                   >
                     {booking.car_name}
                   </p>

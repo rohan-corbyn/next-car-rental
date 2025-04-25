@@ -12,18 +12,23 @@ import clsx from "clsx";
 
 const links = [
   {
-    name: "Enquiries",
-    href: "/account-dashboard/enquiries",
+    name: "Admin Dashboard",
+    href: "/admin-dashboard/",
+    icon: HomeIcon,
+  },
+  {
+    name: "Admin Posts",
+    href: "/admin-dashboard/",
     icon: ChatBubbleLeftRightIcon,
   },
   {
-    name: "Fleet",
-    href: "/account-dashboard/account-fleet",
+    name: "Admin Fleet",
+    href: "/admin-dashboard/",
     icon: NewspaperIcon,
   },
 ];
 
-export default function NavLinks() {
+export default function AdminNavLinks() {
   const pathname = usePathname();
 
   return (

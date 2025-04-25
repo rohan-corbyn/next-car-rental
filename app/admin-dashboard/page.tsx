@@ -1,6 +1,6 @@
-import { AccountCard } from "@/app/util/ui/account-dashboard/AccountCard";
-import RevenueChart from "@/app/util/ui/account-dashboard/RecentRevenue";
-import LatestBookings from "@/app/util/ui/account-dashboard/LatestBookings";
+import { AdminCard } from "@/app/util/ui/admin-dashboard/AdminCard";
+import RevenueChart from "@/app/util/ui/admin-dashboard/RecentRevenue";
+import LatestBookings from "@/app/util/ui/admin-dashboard/LatestBookings";
 import {
   fetchRevenue,
   fetchLatestBookings,
@@ -22,28 +22,28 @@ export default async function Dashboard() {
     <>
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {
-          <AccountCard
+          <AdminCard
             title="Collected"
             value={totalPaidBookings}
             type="collected"
           />
         }
         {
-          <AccountCard
+          <AdminCard
             title="Pending"
             value={totalPendingBookings}
             type="pending"
           />
         }
         {
-          <AccountCard
+          <AdminCard
             title="Total Bookings"
             value={numberOfBookings}
             type="bookings"
           />
         }
         {
-          <AccountCard
+          <AdminCard
             title="Total Customers"
             value={numberOfCustomers}
             type="customers"
